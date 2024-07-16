@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="pablooo iskkkoooobaaaar  ">
+    <meta name="description" content="موقع احترافي يعرض صورة مركزية ونصًا أسفلها">
     <title>البلبل الناري  </title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,7 +11,7 @@
   <img class="hide" src="images/2.jpg">
     <div class="container">
         <img src="
-        images/1.jpg" alt="صورة" id="music-img">
+        images/3.jpg" alt="صورة" id="music-img">
         <p>ادغط على الصورة</p>
     </div>
     
@@ -20,6 +20,35 @@
         Your browser does not support the audio element.
     </audio>
     
-    <script src="script.js"></script>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var audio = document.getElementById('myAudio');
+        var img = document.getElementById('music-img');
+
+        // مصفوفة تخزين مسارات الأغاني
+        var songs = [
+            'audio/1.m4a',
+            'audio/2.m4a',
+            'audio/3.m4a',
+            'audio/4.m4a',
+            'audio/5.m4a',
+            // أضف مسارات الأغاني الأخرى هنا
+        ];
+
+        // متغير لتتبع الأغنية الحالية
+        var currentSongIndex = 0;
+
+        img.addEventListener('click', function() {
+            // تحديث مصدر العنصر الصوتي إلى الأغنية الحالية
+            audio.src = songs[currentSongIndex];
+            
+            // تشغيل الصوت
+            audio.play();
+
+            // تحديث المؤشر للأغنية التالية
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+        });
+    });
+    </script>
 </body>
 </html>
